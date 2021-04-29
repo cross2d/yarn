@@ -15,7 +15,7 @@ const fs = require('fs');
 const invariant = require('invariant');
 const path = require('path');
 
-const INSTALL_STAGES = ['preinstall', 'install', 'postinstall'];
+const INSTALL_STAGES = ['preinstall', 'install', 'postinstall' , 'prebuildstep', 'afterbuildstep'];
 
 export type InstallArtifacts = {
   [pattern: string]: Array<string>,

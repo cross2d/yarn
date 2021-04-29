@@ -18,6 +18,20 @@
 
 ---
 
+## 新增功能
+
+* 支持安装过程Hook
+``` javascript
+/**
+  package.json 中配置 prebuildstep 和 afterbuildstep
+  拦截 yarn install 过程 BuildStep 阶段
+**/
+"scripts": {
+    "prebuildstep": "patch-package",
+    "afterbuildstep": "echo =================[afterbuildstep]"
+},
+```
+
 **Fast:** Yarn caches every package it has downloaded, so it never needs to download the same package again. It also does almost everything concurrently to maximize resource utilization. This means even faster installs.
 
 **Reliable:** Using a detailed but concise lockfile format and a deterministic algorithm for install operations, Yarn is able to guarantee that any installation that works on one system will work exactly the same on another system.

@@ -696,11 +696,16 @@ export class Install {
           emoji.get('hammer'),
         );
 
+        // todo 安装 prebuildstep 的钩子
+        await this.config.executeLifecycleScript('prebuildstep');
+
         if (this.config.ignoreScripts) {
           this.reporter.warn(this.reporter.lang('ignoredScripts'));
         } else {
           await this.scripts.init(flattenedTopLevelPatterns);
         }
+        // todo 安装 afterbuildstep 的钩子
+        await this.config.executeLifecycleScript('afterbuildstep');
       }),
     );
 
